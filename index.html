@@ -12,17 +12,18 @@
       color: white;
       font-family: "Poppins", sans-serif;
       overflow-x: hidden;
-      scroll-behavior: smooth; /* 🌀 smooth scroll */
+      scroll-behavior: smooth;
     }
 
     /* === NAV BAR === */
     nav {
       position: fixed;
-      top: 0;
+      top: 50%;
       left: 0;
-      height: 100%;
-      width: 500px;
+      height: fit-content;
+      width: fit-content;
       display: flex;
+      transform: translateY(-50%);
       flex-direction: column;
       align-items: left;
       justify-content: center;
@@ -107,7 +108,7 @@
     }
 
     .overlay-content {
-      width: 25%;
+      width: 30%;
       padding: 5rem;
     }
 
@@ -146,6 +147,32 @@
     #waitlist {
       background: #222;
     }
+
+        /* For Chrome, Edge, Safari */
+    ::-webkit-scrollbar {
+      width: 6px;               /* scrollbar width */
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #111;          /* track color */
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #555;    /* scrollbar color */
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: #888;    /* hover color */
+    }
+
+    /* For Firefox */
+    * {
+      scrollbar-width: thin;     /* makes scrollbar thin */
+      scrollbar-color: #555 #111; /* thumb color | track color */
+    }
+
+
   </style>
 </head>
 
