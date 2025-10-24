@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AiCore</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      color: white;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .parallax-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      perspective: 360px;
+      transform-style: preserve-3d;
+    }
+
+    .layer {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.2s ease-out;
+    }
+
+    .layer:nth-child(1) {
+      background-image: url('Background.png');
+      z-index: 1;
+    }
+
+    .layer:nth-child(2) {
+      background-image: url('String-Logo.png');
+      z-index: 2;
+    }
+
+    .layer:nth-child(3) {
+      background-image: url('Foreground-Table.png');
+      z-index: 3;
+      scale: 1.03;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;      
+      z-index: 10;
+      text-align: center;
+      font-size: 2rem;
+      letter-spacing: 2px;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="parallax-container" id="parallax">
+    <div class="layer" data-depth="0.02"></div>
+    <div class="layer" data-depth="0.024"></div>
+    <div class="layer" data-depth="0.04"></div>
+  </div>
+
+  <div class="overlay">
+    <h1>AiCore</h1>
+    <p>Artificial Intelligence for Crime Observation and Reconstruction Enhancement</p>
+  </div>
+
+  <script>
+    const container = document.getElementById('parallax');
+    const layers = container.querySelectorAll('.layer');
+
+    container.addEventListener('mousemove', (e) => {
+      const rect = container.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+
+      layers.forEach(layer => {
+        const depth = layer.getAttribute('data-depth');
+        const moveX = x * depth;
+        const moveY = y * depth;
+        layer.style.transform = `translate(${moveX}px, ${moveY}px)`;
+      });
+    });
+
+    container.addEventListener('mouseleave', () => {
+      layers.forEach(layer => {
+        layer.style.transform = `translate(0, 0)`;
+      });
+    });
+  </script>
+</body>
+</html>
