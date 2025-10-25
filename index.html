@@ -51,6 +51,7 @@
       letter-spacing: 1px;
       transition: color 0.3s, transform 0.3s;
       font-weight: 50;
+      text-shadow: -2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 
     .nav-links a:hover {
@@ -91,8 +92,13 @@
     }
 
     .layer:nth-child(3) {
-      background-image: url('Foreground-Table.png');
+      background-image: url('cabinets.png');
       z-index: 3;
+    }
+
+    .layer:nth-child(4) {
+      background-image: url('Foreground-Table.png');
+      z-index: 4;
       scale: 1.03;
     }
 
@@ -119,12 +125,14 @@
       font-size: 5rem;
       font-weight: 100;
       line-height: 4.1rem;
+      text-shadow: -2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 
     .overlay-content p {
       font-weight: lighter;
       color: rgb(170, 170, 170);
       font-size: 2rem;
+      text-shadow: -2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 
     /* === SCROLL SECTIONS === */
@@ -186,7 +194,8 @@
     <div class="parallax-container" id="parallax">
       <div class="layer" data-depth="0.02"></div>
       <div class="layer" data-depth="0.022"></div>
-      <div class="layer" data-depth="0.04"></div>
+      <div class="layer" data-depth="0.03"></div>
+      <div class="layer" data-depth="0.05"></div>
       <div class="overlay">
         <div class="overlay-content">
           <h1>The Future of Forensic Science is Here</h1>
@@ -211,7 +220,7 @@
   </section>
 
   <!-- === Anime.js CDN === -->
-  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script> 
 
   <script>
     // === PARALLAX ===
